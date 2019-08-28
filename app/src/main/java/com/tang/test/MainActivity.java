@@ -2,7 +2,6 @@ package com.tang.test;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.telecom.Call;
 import android.util.Log;
 
 import com.eclipsesource.v8.JavaCallback;
@@ -11,6 +10,7 @@ import com.eclipsesource.v8.V8;
 import com.eclipsesource.v8.V8Array;
 import com.eclipsesource.v8.V8Function;
 import com.eclipsesource.v8.V8Object;
+import com.tang.test.j2v8.J2V8Util;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
                     List<Object> list1 = new ArrayList<>();
                     list1.add("吴彦祖");
                     list1.add("是帅哥哦");
-                    Log.d("test------v8String-->",J2V8Util.v8StringFunction(v8,"j2v8String",J2V8Util.getV8Array(v8,list1)));
+                    Log.d("test------v8String-->", J2V8Util.v8StringFunction(v8,"j2v8String",J2V8Util.getV8Array(v8,list1)));
 
                     List<Object> list2 = new ArrayList<>();
                     list2.add(22);
@@ -72,8 +72,8 @@ public class MainActivity extends AppCompatActivity {
                     List<Object> list5 = new ArrayList<>();
                     list5.add(111);
                     list5.add(11);
-                    V8Function function = new V8Function(v8,javaCallback);
-                    J2V8Util.v8Void(v8,"handle",J2V8Util.getV8Array(v8,list5),function);
+//                    V8Function function = new V8Function(v8,);
+//                    J2V8Util.v8Void(v8,"handle",J2V8Util.getV8Array(v8,list5),function);
                 }
             }
         }, "j2v8/j2v8test.js");

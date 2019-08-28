@@ -5,8 +5,11 @@ import android.content.Context;
 import android.content.res.AssetManager;
 import android.os.AsyncTask;
 
+import com.tang.test.j2v8.J2V8Util;
+
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 
 /**
@@ -32,38 +35,12 @@ public class J2V8ReadJavaScript extends AsyncTask<String, String, String>
     {
         super();
     }
-    public static String getFileContent(String fileName, Context context)
-    {
-        //将json数据变成字符串
-        StringBuilder stringBuilder = new StringBuilder();
-        try
-        {
-            //获取assets资源管理器
-            AssetManager assetManager = context.getAssets();
-            //通过管理器打开文件并读取
-            BufferedReader bf = new BufferedReader(new InputStreamReader(
-                    assetManager.open(fileName)));
-            String line;
-            while ((line = bf.readLine()) != null)
-            {
-                stringBuilder.append(line).append("\r\n");//为了保证js的严格“行”属性，这里主动追加\r\n
-            }
-            bf.close();
-        }
-        catch (IOException e)
-        {
-            e.printStackTrace();
-        }
 
-        return stringBuilder.toString();
-    }
     @Override
     protected String doInBackground(String... strparams)
     {
-
-        String jsString = getFileContent(this.fileName, this.activity);
-
-        return jsString;
+        final InputStream INPUTSTREAM = this.activity.getClass().getClassLoader().getResourceAsStream("j2v8/j2v8test.js");//获取js脚本的输入流
+        return J2V8Util.getFileContent(INPUTSTREAM);
     }
     @Override
     protected void onPostExecute(String result)
