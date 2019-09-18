@@ -71,21 +71,8 @@ public class J2V8Util {
      * @return
      * @throws Exception
      */
-    public static String supplyAsync(final InputStream inputStream) throws Exception {
-        final String[] jsonJs = {""};
-        new AsyncTask<String, String, String>() {
-            @Override
-            protected String doInBackground(String... strings) {
-                return getFileContent(inputStream);
-            }
-
-            @Override
-            protected void onPostExecute(String s) {
-                jsonJs[0] = s;
-//                super.onPostExecute(s);
-            }
-        };
-        return jsonJs[0];
+    public static String supplyAsync(final InputStream inputStream) {
+        return getFileContent(inputStream);
     }
 
     /**

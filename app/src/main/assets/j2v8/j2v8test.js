@@ -18,9 +18,9 @@ function j2v8Boolean(x,y){
 }
 
 function putVoid(x,y){
-    var array1 = [{first:'Ian'}, {first:'Jordi'}, {first:'Holger'}];
-    for ( var i = 0; i < array1.length; i++ ) {
-      putString.call(array1[i], " says Hi."); // putString 是 java 注册到 js 的一个函数
+    var array = [{name:'zhangSan'}, {name:'liSi'}, {name:'wangMaZi'}];
+    for ( var i = 0; i < array.length; i++ ) {
+      javaVoid.call(array[i], " 你好啊"); // javaVoid 是 java 注册到 js 的一个函数
     }
     return j2v8Int(x,y);
 }
@@ -32,6 +32,12 @@ var j2v8New = {
 
 function handle(x,y,callBack){
     callBack(x+y);
+}
+
+function javaCallBack(x,y){
+
+    var t = javaBack(x+y);//javaBack是 java注册到js中的一个回调函数
+    return t;
 }
 
 

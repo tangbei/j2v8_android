@@ -13,7 +13,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 /**
- * 描述:
+ * 描述: 使用asyncTask异步读取本地js脚本
  * 作者 : Tong
  * e-mail : itangbei@sina.com
  * 创建时间: 2019/8/5.
@@ -22,12 +22,10 @@ public class J2V8ReadJavaScript extends AsyncTask<String, String, String>
 {
     private AsyncTaskBackListener<String> listener;
 
-    private String fileName;
     private Activity activity;
-    public J2V8ReadJavaScript(Activity activity, AsyncTaskBackListener<String> listener, String fileName)
+    public J2V8ReadJavaScript(Activity activity, AsyncTaskBackListener<String> listener)
     {
         this.listener = listener;
-        this.fileName = fileName;
         this.activity = activity;
 
     }
@@ -39,7 +37,7 @@ public class J2V8ReadJavaScript extends AsyncTask<String, String, String>
     @Override
     protected String doInBackground(String... strparams)
     {
-        final InputStream INPUTSTREAM = this.activity.getClass().getClassLoader().getResourceAsStream("j2v8/j2v8test.js");//获取js脚本的输入流
+        final InputStream INPUTSTREAM = this.activity.getClass().getResourceAsStream("/assets/j2v8/j2v8test.js");//获取js脚本的输入流
         return J2V8Util.getFileContent(INPUTSTREAM);
     }
     @Override
