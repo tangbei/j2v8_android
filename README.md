@@ -10,6 +10,14 @@ dependencies {
 }
 ```
 2. 也可以在app的libs中引入j2v8.aar文件。[点击获取maven地址](https://mvnrepository.com/artifact/com.eclipsesource.j2v8/j2v8)
+   同时在build.gradle中引入：
+   ```
+   repositories {
+       flatDir {
+           dirs 'libs'
+       }
+   }
+   ```
 
 #### 后台java使用方式:
 
