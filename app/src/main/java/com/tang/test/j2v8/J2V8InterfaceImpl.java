@@ -24,11 +24,6 @@ public class J2V8InterfaceImpl implements J2V8Interface {
     }
 
     @Override
-    public void Log(String log) {
-        System.out.println(log);
-    }
-
-    @Override
     public String getJs() {
         return jsString;
     }

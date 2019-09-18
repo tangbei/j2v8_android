@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 描述:
+ * 描述: j2v8帮助实现类
  * 作者 : Tong
  * e-mail : itangbei@sina.com
  * 创建时间: 2019/8/28.

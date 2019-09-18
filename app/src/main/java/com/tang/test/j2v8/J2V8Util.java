@@ -1,6 +1,7 @@
 package com.tang.test.j2v8;
 
 import android.os.AsyncTask;
+import android.util.Log;
 
 import com.eclipsesource.v8.V8;
 import com.eclipsesource.v8.V8Array;
@@ -25,7 +26,7 @@ public class J2V8Util {
     /**
      * 获取oss上的js文件，并转换成String返回
      * 如果是获取网络地址，则使用 J2V8Single.class 处理
-     * @param _url oss上的js地址：https://resource.toolmall.com/resource/toolmallerp/template/j2v8test.js
+     * @param _url oss上的js地址：https://github.com/tangbei/j2v8_android/blob/master/j2v8test.js
      * @return
      */
     public static String getOssJsUrl(String _url){
@@ -59,7 +60,7 @@ public class J2V8Util {
             localString = supplyAsync(INPUTSTREAM);//获取js处理后的字符串
         } catch (Exception e) {
             e.printStackTrace();
-            context.Log("J2V8Single----->js处理失败");
+            Log.d("J2V8Single----->","js处理失败");
         }
         return localString;
     }
